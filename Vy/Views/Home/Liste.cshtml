@@ -1,0 +1,42 @@
+﻿@model List<Vy.Models.Passenger>
+
+<body>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Email</th>
+                <th>Ticket Price</th>
+                <th>Ticket Number</th>
+                <th>Travellings Class</th>
+                <th>Date Of Journey</th>
+                <th>Time Of Journey</th>
+                <th>Transports Number</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+            </tr>
+            @foreach (var passenger in Model)
+            {
+        <tr>
+            <td>@passenger.email</td>
+            <td>@passenger.ticketPrice</td>
+            <td>@passenger.ticketNumber</td>
+            <td>@passenger.travellingClass</td>
+            <td>@passenger.dateOfJourney</td>
+            <td>@passenger.timeOfJourney</td>
+            <td>@passenger.transportNumber</td>
+            <td>@passenger.source</td>
+            <td>@passenger.destination</td>
+            <td>@passenger.arrivalTime</td>
+            <td>@passenger.departureTime</td>
+            <td><a href="/Home/delete?=@passenger.email" class="btn btn-danger">Delete</a></td>
+
+        </tr>
+            }
+
+        </table>
+        <a href="/Home/Book" class="btn btn-info">Book a new one</a>
+    </div>
+</body>
+
