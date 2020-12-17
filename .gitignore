@@ -338,3 +338,10 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Ignore generated files
+
+/**/Content/*
+!/**/Content/Site.css
+Fonts
+Scripts

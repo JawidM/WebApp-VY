@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vy.DAL;
 using Vy.Models;
 
 namespace Vy.Controllers
 {
+    [HandleError]
+
     public class HomeController : Controller
     {
-        // GET: Home
-        public ActionResult Liste()
+        // Return Homepage
+        public ActionResult Index()
         {
-            var db = new DBPassenger();
-            List<Passenger> allPassenger = db.allPassengers();
-            return View(allPassenger);
+            Session["Ticket"] = null;
+            return View();
         }
 
-        public ActionResult Book(Passenger inPassenger)
+        //Return All tickets page
+        public ActionResult AllTickets()
         {
-            return View();
+            var TicketDAL = new TicketDAL();
+            List<Ticket> AllTickets = TicketDAL.getAllTickets();
+            return View(AllTickets);
         }
     }
 }
